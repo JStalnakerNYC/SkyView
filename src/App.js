@@ -1,11 +1,13 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Gallery from "./components/Gallery";
 
-const App = () => {
+export default function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Route component={Gallery} path="/" />
+      </div>
+    </BrowserRouter>
   );
-};
-
-export default App;
+}
