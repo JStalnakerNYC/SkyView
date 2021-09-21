@@ -26,20 +26,28 @@ const Gallery = () => {
 
   return (
     <>
-      {picturesData.map((picture) => {
-        return (
-          <div className="picture-container" key={picture.id}>
-            <div className="image">
-              <img src={picture.url} alt={picture.title} className="picture" />
+      <h1 className="title">Skyview</h1>
+      <p>Images from NASA's API</p>
+      <div className="gallery-container">
+        {picturesData.map((picture) => {
+          return (
+            <div className="picture-container" key={picture.id}>
+              <div className="image">
+                <img
+                  src={picture.url}
+                  alt={picture.title}
+                  className="picture"
+                />
+              </div>
+              <div className="picture-details">
+                <h3>{picture.title}</h3>
+                <p>{picture.date}</p>
+                <p>{picture.explanation}</p>
+              </div>
             </div>
-            <div className="picture-details">
-              <h2>{picture.title}</h2>
-              <h3>{picture.date}</h3>
-              <p>{picture.explanation}</p>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 };

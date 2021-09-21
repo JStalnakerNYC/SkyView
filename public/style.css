@@ -1,3 +1,37 @@
 body {
   font-family: century-gothic, Century Gothic, CenturyGothic, AppleGothic;
+  padding: 10px;
+}
+
+.gallery-container {
+  background-color: cyan;
+  display: flex;
+  flex-direction: column-reverse;
+
+  align-items: center;
+}
+
+.picture-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background-color: blue;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.picture {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 600px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.picture-details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 }
