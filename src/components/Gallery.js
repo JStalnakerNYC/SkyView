@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import LikeButton from "./LikeButton";
+import Loading from "./Loading";
 
 const nasaKey = process.env.REACT_APP_NASA_KEY;
 
@@ -21,32 +23,41 @@ const Gallery = () => {
   }, []);
 
   if (!picturesData) {
-    return <div />;
+    return (
+      <div className="loading-container">
+        <Loading />
+      </div>
+    );
   }
 
   return (
     <>
-      <h1 className="title">Skyview</h1>
-      <p>Images from NASA's API</p>
       <div className="gallery-container">
-        {picturesData.map((picture) => {
-          return (
-            <div className="picture-container" key={picture.id}>
-              <div className="image">
-                <img
-                  src={picture.url}
-                  alt={picture.title}
-                  className="picture"
-                />
+        <div className="title-container">
+          <h1 className="title">Skyview</h1>
+          <p className="credits">Daily images from NASA's API</p>
+        </div>
+        <div className="gallery-picture-container">
+          {picturesData.map((picture) => {
+            return (
+              <div className="picture-container" key={picture.id}>
+                <div className="image">
+                  <img
+                    src={picture.url}
+                    alt={picture.title}
+                    className="picture"
+                  />
+                </div>
+                <div className="picture-details">
+                  <h3 className="picture-title">{picture.title}</h3>
+                  <p className="picture-date">{picture.date}</p>
+                  <p className="picture-explanation">{picture.explanation}</p>
+                  <LikeButton />
+                </div>
               </div>
-              <div className="picture-details">
-                <h3>{picture.title}</h3>
-                <p>{picture.date}</p>
-                <p>{picture.explanation}</p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

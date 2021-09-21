@@ -1,23 +1,84 @@
 body {
   font-family: century-gothic, Century Gothic, CenturyGothic, AppleGothic;
   padding: 10px;
+  background-color: rgb(237, 237, 237);
 }
 
 .gallery-container {
-  background-color: cyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.title {
+  width: 600px;
+  margin: 2px;
+  font-weight: bold;
+}
+.credits {
+  width: 600px;
+  margin: 0;
+  color: grey;
+}
+
+.gallery-picture-container {
   display: flex;
   flex-direction: column-reverse;
-
   align-items: center;
+}
+
+.loading-container {
+  margin-top: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-phrase {
+  display: flex;
+  flex-direction: row;
+}
+
+.loading-letter {
+  font-size: 40px;
+  font-weight: normal;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  color: grey;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  40% {
+    transform: translateY(-50px);
+  }
+  80%,
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .picture-container {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 12px;
-  background-color: blue;
+  background-color: white;
   border-radius: 10px;
+  margin-bottom: 30px;
   max-width: 600px;
+  box-shadow: -7px 8px 9px grey;
 }
 
 .picture {
@@ -34,4 +95,31 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 15px;
+}
+
+.picture-title {
+  margin: 0;
+  font-weight: bold;
+}
+
+.picture-date {
+  margin: 0;
+  font-weight: lighter;
+  color: grey;
+}
+
+.picture-explanation {
+  margin: 1;
+}
+
+.like-button {
+  width: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-size: 33px;
+  vertical-align: middle;
 }
