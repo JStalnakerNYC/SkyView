@@ -12,12 +12,10 @@ const Gallery = () => {
 
     async function fetchPicture() {
       let today = new Date().toISOString().slice(0, 10);
-      console.log(today);
       const pictures = await fetch(
         `https://api.nasa.gov/planetary/apod/?start_date=2021-09-01&end_date=${today}&api_key=${nasaKey}`
       );
       const data = await pictures.json();
-      console.log("here is data", data);
       setPictures(data);
     }
   }, []);
@@ -40,7 +38,7 @@ const Gallery = () => {
         <div className="gallery-picture-container">
           {picturesData.map((picture) => {
             return (
-              <div className="picture-container" key={picture.id}>
+              <div className="picture-container" key={picture.date}>
                 <div className="image">
                   <img
                     src={picture.url}
@@ -52,7 +50,7 @@ const Gallery = () => {
                   <h3 className="picture-title">{picture.title}</h3>
                   <p className="picture-date">{picture.date}</p>
                   <p className="picture-explanation">{picture.explanation}</p>
-                  <LikeButton />
+                  <LikeButton date={picture.date} />
                 </div>
               </div>
             );
